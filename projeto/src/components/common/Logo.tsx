@@ -34,7 +34,7 @@ export const Logo: React.FC<LogoProps> = ({
     <div className="flex items-center gap-2.5 sm:gap-3">
       {/* Official JUVENTUDE DIGITAL 360° Logo Image */}
       <img
-        src="/assets/aistudio/file_00000000c7f88211936bb871f48c42f4_2b735ac9.png"
+        src={`${import.meta.env.BASE_URL}logo.png`}
         alt="Logotipo Oficial JUVENTUDE DIGITAL 360°"
         className={`${imageSizes[size]} object-contain shrink-0 drop-shadow-sm select-none transition-transform hover:scale-105`}
         loading="eager"
