@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { IdeaProject, MozambiqueProvince } from '../types';
 import { StorageService } from '../services/storage';
+import { supabase } from '../lib/supabase';
 import {
   Lightbulb,
   Send,
@@ -72,7 +73,7 @@ export const IdeasLabPage: React.FC<IdeasLabPageProps> = ({
     formRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!projectName.trim() || !problem.trim() || !solution.trim() || !targetBeneficiaries.trim()) {
       setErrorMessage('Por favor preenche todos os campos obrigatórios do teu projeto.');
@@ -93,6 +94,30 @@ export const IdeasLabPage: React.FC<IdeasLabPageProps> = ({
       contactEmailOrPhone: contactEmailOrPhone.trim() || undefined,
       publicConsentGiven
     });
+
+    const { error: dbError } = await supabase.from('ideas').insert({
+      id: created.id,
+      project_name: created.projectName,
+      area: created.area,
+      province: created.province,
+      district: created.district ?? null,
+      problem: created.problem,
+      solution: created.solution,
+      target_beneficiaries: created.targetBeneficiaries,
+      resources_needed: created.resourcesNeeded,
+      project_phase: created.projectPhase,
+      author_name: created.authorName ?? null,
+      contact_email_or_phone: created.contactEmailOrPhone ?? null,
+      public_consent_given: created.publicConsentGiven,
+      status: 'em_revisao',
+      submitted_at: created.submittedAt,
+      likes_count: created.likesCount
+    });
+    if (dbError) {
+      console.error(dbError);
+      setErrorMessage('Não foi possível guardar a proposta. Tenta novamente.');
+      return;
+    }
 
     onIdeaSubmitted(created);
     setSubmittedSuccess(true);
