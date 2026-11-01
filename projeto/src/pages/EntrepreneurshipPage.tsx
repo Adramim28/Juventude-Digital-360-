@@ -81,7 +81,7 @@ export const EntrepreneurshipPage: React.FC<EntrepreneurshipPageProps> = ({
 
           <div className="lg:col-span-5 h-64 sm:h-80 lg:h-full relative bg-slate-100">
             <img
-              src="/images/youth_entrepreneur_african_1792781138353.jpg"
+                src="/Juventude-Digital-360-/images/youth_entrepreneur_african_1792781138353.jpg"
               alt="Jovem empreendedora moçambicana em Quelimane liderando o seu negócio"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"

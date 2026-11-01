@@ -143,7 +143,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             <div className="lg:col-span-5 relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white aspect-[16/10] sm:aspect-[4/3] bg-slate-100">
                 <img
-                  src="/images/hero_african_youth_tech_1792781137538.jpg"
+                src="/Juventude-Digital-360-/images/hero_african_youth_tech_1792781137538.jpg"
                   alt="Jovens moçambicanos colaborando com tecnologia num centro digital"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
