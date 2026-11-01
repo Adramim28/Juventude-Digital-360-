@@ -147,7 +147,7 @@ export const IdeasLabPage: React.FC<IdeasLabPageProps> = ({
 
           <div className="lg:col-span-5 h-64 sm:h-80 lg:h-full relative bg-slate-100">
             <img
-              src="/src/assets/images/ideas_lab_innovation_mozambique_1792781139148.jpg"
+              src="/images/ideas_lab_innovation_mozambique_1792781139148.jpg"
               alt="Jovens moçambicanos num laboratório de ideias discutindo soluções comunitárias"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
