@@ -115,7 +115,7 @@ export const IdeasLabPage: React.FC<IdeasLabPageProps> = ({
     });
     if (dbError) {
       console.error(dbError);
-      setErrorMessage('Não foi possível guardar a proposta. Tenta novamente.');
+      setErrorMessage(dbError.message);
       return;
     }
 
